@@ -114,7 +114,18 @@ public class Main {
                 System.out.println(line);
             }
         }else{
-
+            ProcessBuilder builder = new ProcessBuilder("clingo", "tents.lp", temp.getAbsolutePath());
+            //ProcessBuilder builder = new ProcessBuilder("clingo", "--version");
+            builder.directory(new File(System.getProperty("user.dir")+"/solver"));
+            builder.redirectErrorStream(true);
+            Process p = builder.start();
+            BufferedReader re = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line;
+            while (true) {
+                line = re.readLine();
+                if (line == null) { break; }
+                System.out.println(line);
+            }
         }
     }
 }
