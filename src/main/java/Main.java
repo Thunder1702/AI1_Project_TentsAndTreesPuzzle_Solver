@@ -12,11 +12,11 @@ public class Main {
 
         try {
             //convert input file (= temp file, will be deleted afterwards)
-            System.out.println("Start converting input file.");
+            System.out.println("Start converting the input file...");
             File temp = convertInput(file,path);
 
             //run solver with converted input file (run command)
-            System.out.println("COMMAND___________________________");
+            System.out.println("Start solver...");
             runSolver(isWindows,temp);
         }catch (Exception e){
             System.err.println(e.getMessage());
@@ -90,11 +90,12 @@ public class Main {
             }
         }
         w.close();
-        BufferedReader r = new BufferedReader(new FileReader(temp));
+        /*BufferedReader r = new BufferedReader(new FileReader(temp));
         String li = "";
         while((li =r.readLine()) != null){
             System.out.println(li);
-        }
+        }*/
+        System.out.println("Temp file for solver has been created at: "+path);
         temp.deleteOnExit();
         return temp;
     }
@@ -102,7 +103,6 @@ public class Main {
         if(isWindows){
             ProcessBuilder builder = new ProcessBuilder("clingo", "tents.lp", temp.getAbsolutePath());
             //ProcessBuilder builder = new ProcessBuilder("clingo", "--version");
-            System.out.println("_______________"+System.getProperty("user.dir"));
             builder.directory(new File(System.getProperty("user.dir")+"\\solver"));
             builder.redirectErrorStream(true);
             Process p = builder.start();
@@ -113,6 +113,8 @@ public class Main {
                 if (line == null) { break; }
                 System.out.println(line);
             }
+        }else{
+
         }
     }
 }
