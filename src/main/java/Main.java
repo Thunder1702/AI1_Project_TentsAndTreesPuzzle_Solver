@@ -102,7 +102,8 @@ public class Main {
         if(isWindows){
             ProcessBuilder builder = new ProcessBuilder("clingo", "tents.lp", temp.getAbsolutePath());
             //ProcessBuilder builder = new ProcessBuilder("clingo", "--version");
-            builder.directory(new File("D:\\Dokumente\\2_Studium_4-Semester\\Introduction_to_Artificial_Intelligence_1\\project"));
+            System.out.println("_______________"+System.getProperty("user.dir"));
+            builder.directory(new File(System.getProperty("user.dir")+"\\solver"));
             builder.redirectErrorStream(true);
             Process p = builder.start();
             BufferedReader re = new BufferedReader(new InputStreamReader(p.getInputStream()));
