@@ -1,0 +1,13 @@
+solution(1).
+solution(1,tent(1,5)).
+solution(1,tent(1,7)).
+solution(1,tent(2,1)).
+solution(1,tent(2,3)).
+solution(1,tent(4,1)).
+solution(1,tent(5,3)).
+solution(1,tent(5,5)).
+solution(1,tent(6,7)).
+solution(1,tent(8,2)).
+solution(1,tent(8,4)).
+solution(1,tent(8,6)).
+solution(1,tent(8,8)).
