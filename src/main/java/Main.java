@@ -101,7 +101,7 @@ public class Main {
     }
     private static void runSolver(boolean isWindows,File temp) throws IOException {
         if(isWindows){
-            ProcessBuilder builder = new ProcessBuilder("clingo", "tents.lp", temp.getAbsolutePath());
+            ProcessBuilder builder = new ProcessBuilder("clingo", "tents.lp", temp.getAbsolutePath(),"--models=0");
             //ProcessBuilder builder = new ProcessBuilder("clingo", "--version");
             builder.directory(new File(System.getProperty("user.dir")+"\\solver"));
             builder.redirectErrorStream(true);
@@ -114,7 +114,7 @@ public class Main {
                 System.out.println(line);
             }
         }else{
-            ProcessBuilder builder = new ProcessBuilder("clingo", "tents.lp", temp.getAbsolutePath());
+            ProcessBuilder builder = new ProcessBuilder("clingo", "tents.lp", temp.getAbsolutePath(),"--models=0");
             //ProcessBuilder builder = new ProcessBuilder("clingo", "--version");
             builder.directory(new File(System.getProperty("user.dir")+"/solver"));
             builder.redirectErrorStream(true);
