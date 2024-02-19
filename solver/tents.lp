@@ -31,7 +31,7 @@ X = Y :- row_hint(R, X), #count{C : tent(R, C)} = Y.
 C1 = C2 :- coupled(R1,C1, R, C), coupled(R2,C2, R, C).
 R1 = R2 :- coupled(R1,C1, R, C), coupled(R2,C2, R, C).
 
-% 5) No tent is horizontally, vertically or diagonally next to another tent
+% 5) No tent is horizontal, vertical or diagonal to another tent.
 %{tent(R+A,C+B) : plus(A,B), R+A>0, C+B>0, R+A<= MR, maxR(MR), C+B<=MC, maxC(MC)}=0 :- tent(R,C).
 %{tent(R+A,C+B) : dia(A,B), R+A>0, C+B>0, R+A<= MR, maxR(MR), C+B<=MC, maxC(MC)}=0 :- tent(R,C).
 neighbourVert(R, C, R+A, C+B) :- tent(R,C), tent(R+A,C+B),plus(A,B), R+A>0, C+B>0, R+A<= MR, maxR(MR), C+B<=MC, maxC(MC).
